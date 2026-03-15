@@ -43,7 +43,7 @@ ROOT_URLCONF = 'serpiente.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # Si tienes plantillas globales, agrega aquí
+        'DIRS': [os.path.join(BASE_DIR, 'serpiente', 'templates')],  # Si tienes plantillas globales, agrega aquí
         'APP_DIRS': True,  # Esto permite buscar plantillas en la carpeta 'templates' de cada app
         'OPTIONS': {
             'context_processors': [
@@ -97,7 +97,7 @@ STATIC_URL = '/static/'
 
 # Añadir carpeta estática para archivos PWA y juego (CSS, JS, iconos, etc)
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'serpiente', 'juego', 'static'),
+    os.path.join(BASE_DIR, 'juego', 'static'),
 ]
 
 # Si estás en producción, usarás 'collectstatic' para reunir todos los archivos estáticos en un solo directorio

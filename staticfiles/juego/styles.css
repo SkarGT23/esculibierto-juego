@@ -1,0 +1,155 @@
+/* Estilo general del body */
+body {
+    font-family: 'Press Start 2P', cursive; /* Fuente retro de videojuegos */
+    text-align: center;
+    background: linear-gradient(135deg, #232b3b 0%, #3a465d 100%); /* Fondo más suave y luminoso */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Estilo del canvas */
+canvas {
+    border: 5px solid #0ff; /* Borde brillante */
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Efecto de resplandor */
+    background: repeating-linear-gradient(135deg, #232b3b 0px, #232b3b 20px, #31405a 20px, #31405a 40px);
+    /* Patrón sutil para mayor sensación de movimiento */
+}
+
+/* Contenedor de botones */
+.button-container {
+    margin: 20px;
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #444;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Efecto de resplandor */
+}
+
+button:hover {
+    background-color: #0ff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1); /* Efecto de resplandor al pasar el ratón */
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Estilo para la puntuación */
+#score {
+    font-size: 2rem;
+    margin-top: 10px;
+    color: #0ff; /* Color brillante */
+    text-shadow: 0 0 10px #0ff; /* Efecto de sombra de texto */
+}
+
+/* =========================
+   Cruceta táctil para móvil
+   ========================= */
+/* Cruceta táctil en fila */
+#touch-controls {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Posición de cada botón para formar la cruz */
+
+button[data-dir="UP"]{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+button[data-dir="LEFT"]{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+button[data-dir="RIGHT"]{
+    grid-column: 3;
+    grid-row: 2;
+}
+
+button[data-dir="DOWN"]{
+    grid-column: 2;
+    grid-row: 3;
+}
+
+/* Botones de la cruceta */
+
+.dir-btn { 
+    width: 50px; 
+    height: 50px; 
+    font-size: 24px; 
+    background: #444; 
+    color: #fff; 
+    border-radius: 10px; 
+    border: none; 
+    cursor: pointer; 
+}
+
+/* Efecto al pasar el ratón o tocar */
+
+.dir-btn:hover { 
+    background: #0ff; 
+    box-shadow: 0 0 15px #0ff; 
+}
+#touch-controls {
+    display: grid;
+    grid-template-areas:
+        ". up ."
+        "left . right"
+        ". down .";
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#touch-controls .dir-btn[data-dir="UP"] {
+    grid-area: up;
+}
+#touch-controls .dir-btn[data-dir="DOWN"] {
+    grid-area: down;
+}
+#touch-controls .dir-btn[data-dir="LEFT"] {
+    grid-area: left;
+}
+#touch-controls .dir-btn[data-dir="RIGHT"] {
+    grid-area: right;
+}
+
+#touch-controls .dir-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    background: #444;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+#touch-controls .dir-btn:hover {
+    background: #0ff;
+    box-shadow: 0 0 15px #0ff;
+}

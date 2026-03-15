@@ -18,22 +18,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from juego import views
+import os
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('juego.urls')),
+    path('', views.index, name='index'),  # tu página principal
+    path('juego/', include('juego.urls')),  # si tienes más rutas internas en juego/urls.py
 ]
 
-# Servir archivos estáticos normales como siempre
+# Servir archivos estáticos en desarrollo
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-# Servir archivos PWA desde la carpeta 'static' de la app sin tocar la web
+# Servir archivos PWA desde la carpeta 'static/pwa' de la app
 if settings.DEBUG and hasattr(settings, 'STATICFILES_DIRS') and settings.STATICFILES_DIRS:
-    urlpatterns += static('/pwa/', document_root=settings.STATICFILES_DIRS[0] + '/pwa')
-
-# Servir archivos PWA desde static/pwa sin interferir con la web
-if settings.DEBUG and hasattr(settings, 'STATICFILES_DIRS') and settings.STATICFILES_DIRS:
-    import os
-    from django.conf.urls.static import static
+    urlpatterns += static('/pwa/', document_root=os.path.join(settings.STATICFILES_DIRS[0], 'pwa'))
     urlpatterns += static('/static/pwa/', document_root=os.path.join(settings.STATICFILES_DIRS[0], 'pwa'))

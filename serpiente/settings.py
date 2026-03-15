@@ -10,7 +10,12 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-+#)g5@64ah+&(nx$vym
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True  # Cambia a False en producción
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '10.89.244.35', 'esculibiertu-the-game.onrender.com', '.ngrok-free.dev'] # Agrega tu dominio para producción
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    '.ngrok-free.dev',
+    'esculibiertu-the-game.onrender.com',  # tu dominio de Render
+] # Agrega tu dominio para producción
 
 # Application definition
 INSTALLED_APPS = [
